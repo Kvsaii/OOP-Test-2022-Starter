@@ -128,6 +128,8 @@ public class Nemetodes extends PApplet {
         int limbsize = nv.limbsize;
         float limb;
         
+
+        //Creating a Circle + Text
         fill(255,255,255);
         circle(400, 100, 50);
 
