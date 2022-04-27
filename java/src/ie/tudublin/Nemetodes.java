@@ -1,6 +1,7 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+import processing.core.PConstants;
 import processing.data.TableRow;
 
 public class Nemetodes extends PApplet {
@@ -74,16 +75,86 @@ public class Nemetodes extends PApplet {
         this.eyes = eyes;
     }
 
-    @Override
+@Override
     public String toString() {
-        return "Nematode [eyes=" + eyes +  ",gender=" + gender + ",length =" + length +  ",limbs=" + limbs + ",name=" + name + "]";
-    }
+    return "Nematode [eyes=" + eyes +  ",gender=" + gender + ",length =" + length +  ",limbs=" + limbs + ",name=" + name + "]";
+}
 
     public static void main () {}
 
 
     public static void add(Nemetodes nema) {
     }
+
+    // Pathetic attempt at creating the visualisation 
+    //public void render(NematodeVisualiser pa, int index){
+        //pa.stroke(255, 0, 255);
+       // pa.textAlign(PApplet.CENTER, PApplet.CENTER);
+        //pa.textSize(20);
+       // pa.rect(100, 200, 100, 200);
+        //float offset = 50;
+
+        //for (int i = 0; i < this.length; i++) {
+           // pa.circle(pa.width/2, (pa.height/2)+(offset*i), 50);
+      //  }
+
+        //pa.text(this.name, 100,100);
+       // if (this.gender == "m") {
+            //for (int i = 0; i < this.length; i++) {
+           // }
+        //} else if (this.gender == "f") {
+          //  for (int i = 0; i < this.length; i++) {
+            //}
+       // } else if (this.gender == "h") {
+            //for (int i = 0; i < this.length; i++) {
+          //  }
+        //} else if (this.gender == "n") {
+         //   for (int i = 0; i < this.length; i++){
+          //  }
+        //} else if (this.gender == "m") {
+          //  for (int i = 0; i < this.length; i++){
+           // }
+       // }
+
+    //}
+
+    public void render(NematodeVisualiser nv, int value)
+    {
+        nv.stroke(NematodeVisualiser.map(value, 0, 10, 0, 255), 255,255);
+
+        int width = nv.width;
+        int height = nv.width;
+        float border = nv.border;
+        int limbsize = nv.limbsize;
+        float limb;
+
+        for(int i = 1; i <= this.length; i++)
+        {
+            limb = border + border + limbsize * i;
+            nv.noFill();
+    
+            nv.circle(width/2, height - limb, limbsize);
+            if(i == this.length){
+                nv.fill(NematodeVisualiser.map(value, 0, 10, 0, 255), 255, 255);
+                nv.textAlign(PConstants.CENTER,PConstants.CENTER);
+                nv.text(this.name, width/2, height -limb - 50);
+            }
+
+        }
+
+
+        //Left arrow
+        nv.line(width - border * 2, width/2, width - border * 3, width/2);
+        nv.line(width - border * 2, width/2, width - border * 2 - 10, height/2 - 10);
+		nv.line(width - border * 2, width/2, width - border * 2 - 10, height/2 + 10);
+
+		//right arrow
+		nv.line(border * 2, width/2, border * 3, width/2);
+		nv.line(border * 2, width/2,border * 2 + 10, height/2 - 10);
+		nv.line(border * 2, width/2,border * 2 + 10, height/2 + 10);
+
+    }
+
     
  
 
