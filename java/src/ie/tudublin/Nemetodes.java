@@ -127,6 +127,9 @@ public class Nemetodes extends PApplet {
         float border = nv.border;
         int limbsize = nv.limbsize;
         float limb;
+        
+        fill(255,255,255);
+        circle(400, 100, 50);
 
         for(int i = 1; i <= this.length; i++)
         {
@@ -143,12 +146,12 @@ public class Nemetodes extends PApplet {
         }
 
 
-        //Left arrow
+        
         nv.line(width - border * 2, width/2, width - border * 3, width/2);
         nv.line(width - border * 2, width/2, width - border * 2 - 10, height/2 - 10);
 		nv.line(width - border * 2, width/2, width - border * 2 - 10, height/2 + 10);
 
-		//right arrow
+	
 		nv.line(border * 2, width/2, border * 3, width/2);
 		nv.line(border * 2, width/2,border * 2 + 10, height/2 - 10);
 		nv.line(border * 2, width/2,border * 2 + 10, height/2 + 10);

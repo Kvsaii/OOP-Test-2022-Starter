@@ -14,12 +14,17 @@ public class NematodeVisualiser extends PApplet
 	public int rowheight = 100;
 	public int limbsize = 50;
 
+
+
+
+
 	ArrayList<Nemetodes> nematodes = new ArrayList<Nemetodes>();
 
 	public void keyPressed()
 	{		
 		if (keyCode == LEFT)
 		{
+			index++;
 		}		
 	}
 
